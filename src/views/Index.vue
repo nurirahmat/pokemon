@@ -6,8 +6,6 @@
         ><br><br>
         <div class="bg-light p5 rounded">
             <div id="poke-container" class="ui cards">
-                    
-                <!-- <router-link :to="{name: 'detail', params:{id: 3 }}" class="btn btn-md btn-success">Detail</router-link> -->
             </div>
         </div>
     </main>
@@ -49,6 +47,7 @@
                 let allPokemonContainer = document.getElementById('poke-container');
                 let pokeContainer = document.createElement("div") 
                 pokeContainer.classList.add('card');
+                pokeContainer.onclick = function() { window.location.href = `/detail/${pokeData.id}` };
 
                 createPokeImage(pokeData.id, pokeContainer);
 
@@ -56,7 +55,8 @@
                 pokeName.innerText = pokeData.name
 
                 let pokeNumber = document.createElement('p')
-                pokeNumber.innerText = `#${pokeData.id}`
+                pokeNumber.innerText = `#${pokeData.id.toString()
+							.padStart(3, '0')}`
             
                 let pokeTypes = document.createElement('ul') 
             
